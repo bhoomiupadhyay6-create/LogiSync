@@ -1,0 +1,1305 @@
+2026-06-27 21:39:34 | INFO     | main                 | ==================================================
+2026-06-27 21:39:34 | INFO     | main                 |   LogiSync v1.0.0 — Starting
+2026-06-27 21:39:34 | INFO     | main                 | ==================================================
+2026-06-27 21:39:47 | INFO     | app_window           | LogiSync v1.0.0 GUI ready.
+2026-06-27 21:39:47 | INFO     | app_window           | Entering Tkinter main loop.
+2026-06-27 21:43:07 | INFO     | aftership_api        | AfterShipAPI initialised — mode: DEMO
+2026-06-27 21:43:07 | INFO     | tracker              | Tracker ready — courier: AfterShip
+2026-06-27 21:43:07 | INFO     | tracker              | 📂  Loading file: C:/Users/admin/Downloads/Tracking Status (Autosaved).xlsx
+2026-06-27 21:43:07 | INFO     | excel_handler        | ExcelHandler created for: C:/Users/admin/Downloads/Tracking Status (Autosaved).xlsx
+2026-06-27 21:43:07 | INFO     | excel_handler        | Reading Excel file: C:/Users/admin/Downloads/Tracking Status (Autosaved).xlsx
+2026-06-27 21:43:08 | INFO     | tracker              | ❌  Critical error: Required column 'Tracking No' not found.
+Columns found in file: ['Invoice No', 'Invoice Date', 'Customer Name', 'Matreial Qty', 'Material', 'Transpoter Name', 'EWAY-BILL', 'Vehicle Number/Docket No', 'Delivery Date', 'Delivery Status', 'POD Status']
+Check config/settings.py → COL_TRACKING_NUMBER
+2026-06-27 21:43:08 | ERROR    | tracker              | Unhandled exception in Tracker.run()
+Traceback (most recent call last):
+  File "c:\Users\admin\OneDrive\Desktop\LogiSync\core\tracker.py", line 126, in run
+    handler.load()
+    ~~~~~~~~~~~~^^
+  File "c:\Users\admin\OneDrive\Desktop\LogiSync\core\excel_handler.py", line 77, in load
+    raise ValueError(
+    ...<3 lines>...
+    )
+ValueError: Required column 'Tracking No' not found.
+Columns found in file: ['Invoice No', 'Invoice Date', 'Customer Name', 'Matreial Qty', 'Material', 'Transpoter Name', 'EWAY-BILL', 'Vehicle Number/Docket No', 'Delivery Date', 'Delivery Status', 'POD Status']
+Check config/settings.py → COL_TRACKING_NUMBER
+2026-06-27 21:43:08 | ERROR    | app_window           | Error in background run
+Traceback (most recent call last):
+  File "c:\Users\admin\OneDrive\Desktop\LogiSync\gui\app_window.py", line 492, in _bg_run
+    session = tracker.run(
+        file_path         = self.file_path.get(),
+        progress_callback = self._on_progress,   # called per tracking number
+        log_callback      = self._thread_log,    # thread-safe log relay
+    )
+  File "c:\Users\admin\OneDrive\Desktop\LogiSync\core\tracker.py", line 126, in run
+    handler.load()
+    ~~~~~~~~~~~~^^
+  File "c:\Users\admin\OneDrive\Desktop\LogiSync\core\excel_handler.py", line 77, in load
+    raise ValueError(
+    ...<3 lines>...
+    )
+ValueError: Required column 'Tracking No' not found.
+Columns found in file: ['Invoice No', 'Invoice Date', 'Customer Name', 'Matreial Qty', 'Material', 'Transpoter Name', 'EWAY-BILL', 'Vehicle Number/Docket No', 'Delivery Date', 'Delivery Status', 'POD Status']
+Check config/settings.py → COL_TRACKING_NUMBER
+2026-06-27 21:46:48 | INFO     | aftership_api        | AfterShipAPI initialised — mode: DEMO
+2026-06-27 21:46:48 | INFO     | tracker              | Tracker ready — courier: AfterShip
+2026-06-27 21:46:48 | INFO     | tracker              | 📂  Loading file: C:/Users/admin/OneDrive/Documents/Book1.xlsx
+2026-06-27 21:46:48 | INFO     | excel_handler        | ExcelHandler created for: C:/Users/admin/OneDrive/Documents/Book1.xlsx
+2026-06-27 21:46:48 | INFO     | excel_handler        | Reading Excel file: C:/Users/admin/OneDrive/Documents/Book1.xlsx
+2026-06-27 21:46:48 | INFO     | tracker              | ❌  Critical error: [Errno 13] Permission denied: 'C:/Users/admin/OneDrive/Documents/Book1.xlsx'
+2026-06-27 21:46:48 | ERROR    | tracker              | Unhandled exception in Tracker.run()
+Traceback (most recent call last):
+  File "c:\Users\admin\OneDrive\Desktop\LogiSync\core\tracker.py", line 126, in run
+    handler.load()
+    ~~~~~~~~~~~~^^
+  File "c:\Users\admin\OneDrive\Desktop\LogiSync\core\excel_handler.py", line 72, in load
+    self.dataframe = pd.read_excel(self.file_path, engine="openpyxl")
+                     ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\io\excel\_base.py", line 481, in read_excel
+    io = ExcelFile(
+        io,
+    ...<2 lines>...
+        engine_kwargs=engine_kwargs,
+    )
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\io\excel\_base.py", line 1621, in __init__
+    self._reader = self._engines[engine](
+                   ~~~~~~~~~~~~~~~~~~~~~^
+        self._io,
+        ^^^^^^^^^
+        storage_options=storage_options,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        engine_kwargs=engine_kwargs,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\io\excel\_openpyxl.py", line 560, in __init__
+    super().__init__(
+    ~~~~~~~~~~~~~~~~^
+        filepath_or_buffer,
+        ^^^^^^^^^^^^^^^^^^^
+        storage_options=storage_options,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        engine_kwargs=engine_kwargs,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\io\excel\_base.py", line 544, in __init__
+    self.handles = get_handle(
+                   ~~~~~~~~~~^
+        filepath_or_buffer, "rb", storage_options=storage_options, is_text=False
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\io\common.py", line 939, in get_handle
+    handle = open(handle, ioargs.mode)
+PermissionError: [Errno 13] Permission denied: 'C:/Users/admin/OneDrive/Documents/Book1.xlsx'
+2026-06-27 21:46:48 | ERROR    | app_window           | Error in background run
+Traceback (most recent call last):
+  File "c:\Users\admin\OneDrive\Desktop\LogiSync\gui\app_window.py", line 492, in _bg_run
+    session = tracker.run(
+        file_path         = self.file_path.get(),
+        progress_callback = self._on_progress,   # called per tracking number
+        log_callback      = self._thread_log,    # thread-safe log relay
+    )
+  File "c:\Users\admin\OneDrive\Desktop\LogiSync\core\tracker.py", line 126, in run
+    handler.load()
+    ~~~~~~~~~~~~^^
+  File "c:\Users\admin\OneDrive\Desktop\LogiSync\core\excel_handler.py", line 72, in load
+    self.dataframe = pd.read_excel(self.file_path, engine="openpyxl")
+                     ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\io\excel\_base.py", line 481, in read_excel
+    io = ExcelFile(
+        io,
+    ...<2 lines>...
+        engine_kwargs=engine_kwargs,
+    )
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\io\excel\_base.py", line 1621, in __init__
+    self._reader = self._engines[engine](
+                   ~~~~~~~~~~~~~~~~~~~~~^
+        self._io,
+        ^^^^^^^^^
+        storage_options=storage_options,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        engine_kwargs=engine_kwargs,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\io\excel\_openpyxl.py", line 560, in __init__
+    super().__init__(
+    ~~~~~~~~~~~~~~~~^
+        filepath_or_buffer,
+        ^^^^^^^^^^^^^^^^^^^
+        storage_options=storage_options,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        engine_kwargs=engine_kwargs,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\io\excel\_base.py", line 544, in __init__
+    self.handles = get_handle(
+                   ~~~~~~~~~~^
+        filepath_or_buffer, "rb", storage_options=storage_options, is_text=False
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\io\common.py", line 939, in get_handle
+    handle = open(handle, ioargs.mode)
+PermissionError: [Errno 13] Permission denied: 'C:/Users/admin/OneDrive/Documents/Book1.xlsx'
+2026-06-27 21:47:40 | INFO     | aftership_api        | AfterShipAPI initialised — mode: DEMO
+2026-06-27 21:47:40 | INFO     | tracker              | Tracker ready — courier: AfterShip
+2026-06-27 21:47:40 | INFO     | tracker              | 📂  Loading file: C:/Users/admin/OneDrive/Documents/Book1.xlsx
+2026-06-27 21:47:40 | INFO     | excel_handler        | ExcelHandler created for: C:/Users/admin/OneDrive/Documents/Book1.xlsx
+2026-06-27 21:47:40 | INFO     | excel_handler        | Reading Excel file: C:/Users/admin/OneDrive/Documents/Book1.xlsx
+2026-06-27 21:47:40 | INFO     | excel_handler        | Column 'Last Updated' not found — added automatically.
+2026-06-27 21:47:40 | INFO     | excel_handler        | Loaded 3 valid tracking rows.
+2026-06-27 21:47:40 | DEBUG    | excel_handler        | get_tracking_numbers() → 3 items
+2026-06-27 21:47:40 | INFO     | tracker              | ✅  Found 3 tracking number(s).
+2026-06-27 21:47:40 | INFO     | tracker              | 🌐  Fetching data via AfterShip...
+
+2026-06-27 21:47:40 | INFO     | tracker              |   [1/3]  Checking: ABC12
+2026-06-27 21:47:40 | DEBUG    | aftership_api        | Fetching: ABC12
+2026-06-27 21:47:41 | INFO     | aftership_api        | [DEMO] ABC12 → Exception / Delay @ Kolkata Customs Clearance
+2026-06-27 21:47:41 | INFO     | tracker              | ❌  Critical error: Invalid value 'Kolkata Customs Clearance' for dtype 'float64'
+2026-06-27 21:47:41 | ERROR    | tracker              | Unhandled exception in Tracker.run()
+Traceback (most recent call last):
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\internals\blocks.py", line 1115, in setitem
+    casted = np_can_hold_element(values.dtype, value)
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\dtypes\cast.py", line 1792, in np_can_hold_element
+    raise LossySetitemError
+pandas.errors.LossySetitemError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\admin\OneDrive\Desktop\LogiSync\core\tracker.py", line 150, in run
+    handler.update_row(
+    ~~~~~~~~~~~~~~~~~~^
+        tracking_number = result.tracking_number,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        location        = result.location,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        status          = result.status,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "c:\Users\admin\OneDrive\Desktop\LogiSync\core\excel_handler.py", line 159, in update_row
+    self.dataframe.loc[mask, COL_LOCATION]     = location
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexing.py", line 938, in __setitem__
+    iloc._setitem_with_indexer(indexer, value, self.name)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexing.py", line 1953, in _setitem_with_indexer
+    self._setitem_with_indexer_split_path(indexer, value, name)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexing.py", line 2044, in _setitem_with_indexer_split_path
+    self._setitem_single_column(loc, value, pi)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexing.py", line 2181, in _setitem_single_column
+    self.obj._mgr.column_setitem(loc, plane_indexer, value)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\internals\managers.py", line 1528, in column_setitem
+    new_mgr = col_mgr.setitem((idx,), value)
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\internals\managers.py", line 607, in setitem
+    return self.apply("setitem", indexer=indexer, value=value)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\internals\managers.py", line 445, in apply
+    applied = getattr(b, f)(**kwargs)
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\internals\blocks.py", line 1118, in setitem
+    nb = self.coerce_to_target_dtype(value, raise_on_upcast=True)
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\internals\blocks.py", line 468, in coerce_to_target_dtype
+    raise TypeError(f"Invalid value '{other}' for dtype '{self.values.dtype}'")
+TypeError: Invalid value 'Kolkata Customs Clearance' for dtype 'float64'
+2026-06-27 21:47:41 | ERROR    | app_window           | Error in background run
+Traceback (most recent call last):
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\internals\blocks.py", line 1115, in setitem
+    casted = np_can_hold_element(values.dtype, value)
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\dtypes\cast.py", line 1792, in np_can_hold_element
+    raise LossySetitemError
+pandas.errors.LossySetitemError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\admin\OneDrive\Desktop\LogiSync\gui\app_window.py", line 492, in _bg_run
+    session = tracker.run(
+        file_path         = self.file_path.get(),
+        progress_callback = self._on_progress,   # called per tracking number
+        log_callback      = self._thread_log,    # thread-safe log relay
+    )
+  File "c:\Users\admin\OneDrive\Desktop\LogiSync\core\tracker.py", line 150, in run
+    handler.update_row(
+    ~~~~~~~~~~~~~~~~~~^
+        tracking_number = result.tracking_number,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        location        = result.location,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        status          = result.status,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "c:\Users\admin\OneDrive\Desktop\LogiSync\core\excel_handler.py", line 159, in update_row
+    self.dataframe.loc[mask, COL_LOCATION]     = location
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexing.py", line 938, in __setitem__
+    iloc._setitem_with_indexer(indexer, value, self.name)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexing.py", line 1953, in _setitem_with_indexer
+    self._setitem_with_indexer_split_path(indexer, value, name)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexing.py", line 2044, in _setitem_with_indexer_split_path
+    self._setitem_single_column(loc, value, pi)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexing.py", line 2181, in _setitem_single_column
+    self.obj._mgr.column_setitem(loc, plane_indexer, value)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\internals\managers.py", line 1528, in column_setitem
+    new_mgr = col_mgr.setitem((idx,), value)
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\internals\managers.py", line 607, in setitem
+    return self.apply("setitem", indexer=indexer, value=value)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\internals\managers.py", line 445, in apply
+    applied = getattr(b, f)(**kwargs)
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\internals\blocks.py", line 1118, in setitem
+    nb = self.coerce_to_target_dtype(value, raise_on_upcast=True)
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\internals\blocks.py", line 468, in coerce_to_target_dtype
+    raise TypeError(f"Invalid value '{other}' for dtype '{self.values.dtype}'")
+TypeError: Invalid value 'Kolkata Customs Clearance' for dtype 'float64'
+2026-06-27 21:48:57 | INFO     | aftership_api        | AfterShipAPI initialised — mode: DEMO
+2026-06-27 21:48:57 | INFO     | tracker              | Tracker ready — courier: AfterShip
+2026-06-27 21:48:57 | INFO     | tracker              | 📂  Loading file: C:/Users/admin/Downloads/Tracking Status (Autosaved).xlsx
+2026-06-27 21:48:57 | INFO     | excel_handler        | ExcelHandler created for: C:/Users/admin/Downloads/Tracking Status (Autosaved).xlsx
+2026-06-27 21:48:57 | INFO     | excel_handler        | Reading Excel file: C:/Users/admin/Downloads/Tracking Status (Autosaved).xlsx
+2026-06-27 21:48:57 | INFO     | tracker              | ❌  Critical error: Required column 'Tracking No' not found.
+Columns found in file: ['Invoice No', 'Invoice Date', 'Customer Name', 'Matreial Qty', 'Material', 'Transpoter Name', 'EWAY-BILL', 'Vehicle Number/Docket No', 'Delivery Date', 'Delivery Status', 'POD Status']
+Check config/settings.py → COL_TRACKING_NUMBER
+2026-06-27 21:48:57 | ERROR    | tracker              | Unhandled exception in Tracker.run()
+Traceback (most recent call last):
+  File "c:\Users\admin\OneDrive\Desktop\LogiSync\core\tracker.py", line 126, in run
+    handler.load()
+    ~~~~~~~~~~~~^^
+  File "c:\Users\admin\OneDrive\Desktop\LogiSync\core\excel_handler.py", line 77, in load
+    raise ValueError(
+    ...<3 lines>...
+    )
+ValueError: Required column 'Tracking No' not found.
+Columns found in file: ['Invoice No', 'Invoice Date', 'Customer Name', 'Matreial Qty', 'Material', 'Transpoter Name', 'EWAY-BILL', 'Vehicle Number/Docket No', 'Delivery Date', 'Delivery Status', 'POD Status']
+Check config/settings.py → COL_TRACKING_NUMBER
+2026-06-27 21:48:57 | ERROR    | app_window           | Error in background run
+Traceback (most recent call last):
+  File "c:\Users\admin\OneDrive\Desktop\LogiSync\gui\app_window.py", line 492, in _bg_run
+    session = tracker.run(
+        file_path         = self.file_path.get(),
+        progress_callback = self._on_progress,   # called per tracking number
+        log_callback      = self._thread_log,    # thread-safe log relay
+    )
+  File "c:\Users\admin\OneDrive\Desktop\LogiSync\core\tracker.py", line 126, in run
+    handler.load()
+    ~~~~~~~~~~~~^^
+  File "c:\Users\admin\OneDrive\Desktop\LogiSync\core\excel_handler.py", line 77, in load
+    raise ValueError(
+    ...<3 lines>...
+    )
+ValueError: Required column 'Tracking No' not found.
+Columns found in file: ['Invoice No', 'Invoice Date', 'Customer Name', 'Matreial Qty', 'Material', 'Transpoter Name', 'EWAY-BILL', 'Vehicle Number/Docket No', 'Delivery Date', 'Delivery Status', 'POD Status']
+Check config/settings.py → COL_TRACKING_NUMBER
+2026-06-27 21:50:58 | INFO     | aftership_api        | AfterShipAPI initialised — mode: DEMO
+2026-06-27 21:50:58 | INFO     | tracker              | Tracker ready — courier: AfterShip
+2026-06-27 21:50:58 | INFO     | tracker              | 📂  Loading file: C:/Users/admin/Downloads/logisync_demo.xlsx
+2026-06-27 21:50:58 | INFO     | excel_handler        | ExcelHandler created for: C:/Users/admin/Downloads/logisync_demo.xlsx
+2026-06-27 21:50:58 | INFO     | excel_handler        | Reading Excel file: C:/Users/admin/Downloads/logisync_demo.xlsx
+2026-06-27 21:50:58 | INFO     | excel_handler        | Loaded 8 valid tracking rows.
+2026-06-27 21:50:58 | DEBUG    | excel_handler        | get_tracking_numbers() → 8 items
+2026-06-27 21:50:58 | INFO     | tracker              | ✅  Found 8 tracking number(s).
+2026-06-27 21:50:58 | INFO     | tracker              | 🌐  Fetching data via AfterShip...
+
+2026-06-27 21:50:58 | INFO     | tracker              |   [1/8]  Checking: TRK-2024-001
+2026-06-27 21:50:58 | DEBUG    | aftership_api        | Fetching: TRK-2024-001
+2026-06-27 21:50:59 | INFO     | aftership_api        | [DEMO] TRK-2024-001 → Out for Delivery @ Bangalore Distribution Hub
+2026-06-27 21:50:59 | INFO     | tracker              | ❌  Critical error: Invalid value 'Bangalore Distribution Hub' for dtype 'float64'
+2026-06-27 21:50:59 | ERROR    | tracker              | Unhandled exception in Tracker.run()
+Traceback (most recent call last):
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\internals\blocks.py", line 1115, in setitem
+    casted = np_can_hold_element(values.dtype, value)
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\dtypes\cast.py", line 1792, in np_can_hold_element
+    raise LossySetitemError
+pandas.errors.LossySetitemError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\admin\OneDrive\Desktop\LogiSync\core\tracker.py", line 150, in run
+    handler.update_row(
+    ~~~~~~~~~~~~~~~~~~^
+        tracking_number = result.tracking_number,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        location        = result.location,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        status          = result.status,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "c:\Users\admin\OneDrive\Desktop\LogiSync\core\excel_handler.py", line 159, in update_row
+    self.dataframe.loc[mask, COL_LOCATION]     = location
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexing.py", line 938, in __setitem__
+    iloc._setitem_with_indexer(indexer, value, self.name)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexing.py", line 1953, in _setitem_with_indexer
+    self._setitem_with_indexer_split_path(indexer, value, name)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexing.py", line 2044, in _setitem_with_indexer_split_path
+    self._setitem_single_column(loc, value, pi)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexing.py", line 2181, in _setitem_single_column
+    self.obj._mgr.column_setitem(loc, plane_indexer, value)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\internals\managers.py", line 1528, in column_setitem
+    new_mgr = col_mgr.setitem((idx,), value)
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\internals\managers.py", line 607, in setitem
+    return self.apply("setitem", indexer=indexer, value=value)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\internals\managers.py", line 445, in apply
+    applied = getattr(b, f)(**kwargs)
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\internals\blocks.py", line 1118, in setitem
+    nb = self.coerce_to_target_dtype(value, raise_on_upcast=True)
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\internals\blocks.py", line 468, in coerce_to_target_dtype
+    raise TypeError(f"Invalid value '{other}' for dtype '{self.values.dtype}'")
+TypeError: Invalid value 'Bangalore Distribution Hub' for dtype 'float64'
+2026-06-27 21:50:59 | ERROR    | app_window           | Error in background run
+Traceback (most recent call last):
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\internals\blocks.py", line 1115, in setitem
+    casted = np_can_hold_element(values.dtype, value)
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\dtypes\cast.py", line 1792, in np_can_hold_element
+    raise LossySetitemError
+pandas.errors.LossySetitemError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\admin\OneDrive\Desktop\LogiSync\gui\app_window.py", line 492, in _bg_run
+    session = tracker.run(
+        file_path         = self.file_path.get(),
+        progress_callback = self._on_progress,   # called per tracking number
+        log_callback      = self._thread_log,    # thread-safe log relay
+    )
+  File "c:\Users\admin\OneDrive\Desktop\LogiSync\core\tracker.py", line 150, in run
+    handler.update_row(
+    ~~~~~~~~~~~~~~~~~~^
+        tracking_number = result.tracking_number,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        location        = result.location,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        status          = result.status,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "c:\Users\admin\OneDrive\Desktop\LogiSync\core\excel_handler.py", line 159, in update_row
+    self.dataframe.loc[mask, COL_LOCATION]     = location
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexing.py", line 938, in __setitem__
+    iloc._setitem_with_indexer(indexer, value, self.name)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexing.py", line 1953, in _setitem_with_indexer
+    self._setitem_with_indexer_split_path(indexer, value, name)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexing.py", line 2044, in _setitem_with_indexer_split_path
+    self._setitem_single_column(loc, value, pi)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexing.py", line 2181, in _setitem_single_column
+    self.obj._mgr.column_setitem(loc, plane_indexer, value)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\internals\managers.py", line 1528, in column_setitem
+    new_mgr = col_mgr.setitem((idx,), value)
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\internals\managers.py", line 607, in setitem
+    return self.apply("setitem", indexer=indexer, value=value)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\internals\managers.py", line 445, in apply
+    applied = getattr(b, f)(**kwargs)
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\internals\blocks.py", line 1118, in setitem
+    nb = self.coerce_to_target_dtype(value, raise_on_upcast=True)
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\internals\blocks.py", line 468, in coerce_to_target_dtype
+    raise TypeError(f"Invalid value '{other}' for dtype '{self.values.dtype}'")
+TypeError: Invalid value 'Bangalore Distribution Hub' for dtype 'float64'
+2026-06-27 21:51:14 | INFO     | aftership_api        | AfterShipAPI initialised — mode: DEMO
+2026-06-27 21:51:14 | INFO     | tracker              | Tracker ready — courier: AfterShip
+2026-06-27 21:51:14 | INFO     | tracker              | 📂  Loading file: C:/Users/admin/OneDrive/Desktop/Book1.xlsx
+2026-06-27 21:51:14 | INFO     | excel_handler        | ExcelHandler created for: C:/Users/admin/OneDrive/Desktop/Book1.xlsx
+2026-06-27 21:51:14 | INFO     | excel_handler        | Reading Excel file: C:/Users/admin/OneDrive/Desktop/Book1.xlsx
+2026-06-27 21:51:14 | INFO     | excel_handler        | Column 'Last Updated' not found — added automatically.
+2026-06-27 21:51:14 | INFO     | excel_handler        | Loaded 3 valid tracking rows.
+2026-06-27 21:51:14 | DEBUG    | excel_handler        | get_tracking_numbers() → 3 items
+2026-06-27 21:51:14 | INFO     | tracker              | ✅  Found 3 tracking number(s).
+2026-06-27 21:51:14 | INFO     | tracker              | 🌐  Fetching data via AfterShip...
+
+2026-06-27 21:51:14 | INFO     | tracker              |   [1/3]  Checking: ABC12
+2026-06-27 21:51:14 | DEBUG    | aftership_api        | Fetching: ABC12
+2026-06-27 21:51:15 | INFO     | aftership_api        | [DEMO] ABC12 → Exception / Delay @ Kolkata Customs Clearance
+2026-06-27 21:51:15 | INFO     | tracker              | ❌  Critical error: Invalid value 'Kolkata Customs Clearance' for dtype 'float64'
+2026-06-27 21:51:15 | ERROR    | tracker              | Unhandled exception in Tracker.run()
+Traceback (most recent call last):
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\internals\blocks.py", line 1115, in setitem
+    casted = np_can_hold_element(values.dtype, value)
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\dtypes\cast.py", line 1792, in np_can_hold_element
+    raise LossySetitemError
+pandas.errors.LossySetitemError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\admin\OneDrive\Desktop\LogiSync\core\tracker.py", line 150, in run
+    handler.update_row(
+    ~~~~~~~~~~~~~~~~~~^
+        tracking_number = result.tracking_number,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        location        = result.location,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        status          = result.status,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "c:\Users\admin\OneDrive\Desktop\LogiSync\core\excel_handler.py", line 159, in update_row
+    self.dataframe.loc[mask, COL_LOCATION]     = location
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexing.py", line 938, in __setitem__
+    iloc._setitem_with_indexer(indexer, value, self.name)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexing.py", line 1953, in _setitem_with_indexer
+    self._setitem_with_indexer_split_path(indexer, value, name)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexing.py", line 2044, in _setitem_with_indexer_split_path
+    self._setitem_single_column(loc, value, pi)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexing.py", line 2181, in _setitem_single_column
+    self.obj._mgr.column_setitem(loc, plane_indexer, value)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\internals\managers.py", line 1528, in column_setitem
+    new_mgr = col_mgr.setitem((idx,), value)
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\internals\managers.py", line 607, in setitem
+    return self.apply("setitem", indexer=indexer, value=value)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\internals\managers.py", line 445, in apply
+    applied = getattr(b, f)(**kwargs)
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\internals\blocks.py", line 1118, in setitem
+    nb = self.coerce_to_target_dtype(value, raise_on_upcast=True)
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\internals\blocks.py", line 468, in coerce_to_target_dtype
+    raise TypeError(f"Invalid value '{other}' for dtype '{self.values.dtype}'")
+TypeError: Invalid value 'Kolkata Customs Clearance' for dtype 'float64'
+2026-06-27 21:51:15 | ERROR    | app_window           | Error in background run
+Traceback (most recent call last):
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\internals\blocks.py", line 1115, in setitem
+    casted = np_can_hold_element(values.dtype, value)
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\dtypes\cast.py", line 1792, in np_can_hold_element
+    raise LossySetitemError
+pandas.errors.LossySetitemError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\admin\OneDrive\Desktop\LogiSync\gui\app_window.py", line 492, in _bg_run
+    session = tracker.run(
+        file_path         = self.file_path.get(),
+        progress_callback = self._on_progress,   # called per tracking number
+        log_callback      = self._thread_log,    # thread-safe log relay
+    )
+  File "c:\Users\admin\OneDrive\Desktop\LogiSync\core\tracker.py", line 150, in run
+    handler.update_row(
+    ~~~~~~~~~~~~~~~~~~^
+        tracking_number = result.tracking_number,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        location        = result.location,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        status          = result.status,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "c:\Users\admin\OneDrive\Desktop\LogiSync\core\excel_handler.py", line 159, in update_row
+    self.dataframe.loc[mask, COL_LOCATION]     = location
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexing.py", line 938, in __setitem__
+    iloc._setitem_with_indexer(indexer, value, self.name)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexing.py", line 1953, in _setitem_with_indexer
+    self._setitem_with_indexer_split_path(indexer, value, name)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexing.py", line 2044, in _setitem_with_indexer_split_path
+    self._setitem_single_column(loc, value, pi)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexing.py", line 2181, in _setitem_single_column
+    self.obj._mgr.column_setitem(loc, plane_indexer, value)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\internals\managers.py", line 1528, in column_setitem
+    new_mgr = col_mgr.setitem((idx,), value)
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\internals\managers.py", line 607, in setitem
+    return self.apply("setitem", indexer=indexer, value=value)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\internals\managers.py", line 445, in apply
+    applied = getattr(b, f)(**kwargs)
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\internals\blocks.py", line 1118, in setitem
+    nb = self.coerce_to_target_dtype(value, raise_on_upcast=True)
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\internals\blocks.py", line 468, in coerce_to_target_dtype
+    raise TypeError(f"Invalid value '{other}' for dtype '{self.values.dtype}'")
+TypeError: Invalid value 'Kolkata Customs Clearance' for dtype 'float64'
+2026-06-27 21:51:20 | INFO     | aftership_api        | AfterShipAPI initialised — mode: DEMO
+2026-06-27 21:51:20 | INFO     | tracker              | Tracker ready — courier: AfterShip
+2026-06-27 21:51:20 | INFO     | tracker              | 📂  Loading file: C:/Users/admin/OneDrive/Desktop/Book1.xlsx
+2026-06-27 21:51:20 | INFO     | excel_handler        | ExcelHandler created for: C:/Users/admin/OneDrive/Desktop/Book1.xlsx
+2026-06-27 21:51:20 | INFO     | excel_handler        | Reading Excel file: C:/Users/admin/OneDrive/Desktop/Book1.xlsx
+2026-06-27 21:51:20 | INFO     | excel_handler        | Column 'Last Updated' not found — added automatically.
+2026-06-27 21:51:20 | INFO     | excel_handler        | Loaded 3 valid tracking rows.
+2026-06-27 21:51:20 | DEBUG    | excel_handler        | get_tracking_numbers() → 3 items
+2026-06-27 21:51:20 | INFO     | tracker              | ✅  Found 3 tracking number(s).
+2026-06-27 21:51:20 | INFO     | tracker              | 🌐  Fetching data via AfterShip...
+
+2026-06-27 21:51:20 | INFO     | tracker              |   [1/3]  Checking: ABC12
+2026-06-27 21:51:20 | DEBUG    | aftership_api        | Fetching: ABC12
+2026-06-27 21:51:21 | INFO     | aftership_api        | [DEMO] ABC12 → Exception / Delay @ Kolkata Customs Clearance
+2026-06-27 21:51:21 | INFO     | tracker              | ❌  Critical error: Invalid value 'Kolkata Customs Clearance' for dtype 'float64'
+2026-06-27 21:51:21 | ERROR    | tracker              | Unhandled exception in Tracker.run()
+Traceback (most recent call last):
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\internals\blocks.py", line 1115, in setitem
+    casted = np_can_hold_element(values.dtype, value)
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\dtypes\cast.py", line 1792, in np_can_hold_element
+    raise LossySetitemError
+pandas.errors.LossySetitemError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\admin\OneDrive\Desktop\LogiSync\core\tracker.py", line 150, in run
+    handler.update_row(
+    ~~~~~~~~~~~~~~~~~~^
+        tracking_number = result.tracking_number,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        location        = result.location,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        status          = result.status,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "c:\Users\admin\OneDrive\Desktop\LogiSync\core\excel_handler.py", line 159, in update_row
+    self.dataframe.loc[mask, COL_LOCATION]     = location
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexing.py", line 938, in __setitem__
+    iloc._setitem_with_indexer(indexer, value, self.name)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexing.py", line 1953, in _setitem_with_indexer
+    self._setitem_with_indexer_split_path(indexer, value, name)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexing.py", line 2044, in _setitem_with_indexer_split_path
+    self._setitem_single_column(loc, value, pi)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexing.py", line 2181, in _setitem_single_column
+    self.obj._mgr.column_setitem(loc, plane_indexer, value)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\internals\managers.py", line 1528, in column_setitem
+    new_mgr = col_mgr.setitem((idx,), value)
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\internals\managers.py", line 607, in setitem
+    return self.apply("setitem", indexer=indexer, value=value)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\internals\managers.py", line 445, in apply
+    applied = getattr(b, f)(**kwargs)
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\internals\blocks.py", line 1118, in setitem
+    nb = self.coerce_to_target_dtype(value, raise_on_upcast=True)
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\internals\blocks.py", line 468, in coerce_to_target_dtype
+    raise TypeError(f"Invalid value '{other}' for dtype '{self.values.dtype}'")
+TypeError: Invalid value 'Kolkata Customs Clearance' for dtype 'float64'
+2026-06-27 21:51:21 | ERROR    | app_window           | Error in background run
+Traceback (most recent call last):
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\internals\blocks.py", line 1115, in setitem
+    casted = np_can_hold_element(values.dtype, value)
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\dtypes\cast.py", line 1792, in np_can_hold_element
+    raise LossySetitemError
+pandas.errors.LossySetitemError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\admin\OneDrive\Desktop\LogiSync\gui\app_window.py", line 492, in _bg_run
+    session = tracker.run(
+        file_path         = self.file_path.get(),
+        progress_callback = self._on_progress,   # called per tracking number
+        log_callback      = self._thread_log,    # thread-safe log relay
+    )
+  File "c:\Users\admin\OneDrive\Desktop\LogiSync\core\tracker.py", line 150, in run
+    handler.update_row(
+    ~~~~~~~~~~~~~~~~~~^
+        tracking_number = result.tracking_number,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        location        = result.location,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        status          = result.status,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "c:\Users\admin\OneDrive\Desktop\LogiSync\core\excel_handler.py", line 159, in update_row
+    self.dataframe.loc[mask, COL_LOCATION]     = location
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexing.py", line 938, in __setitem__
+    iloc._setitem_with_indexer(indexer, value, self.name)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexing.py", line 1953, in _setitem_with_indexer
+    self._setitem_with_indexer_split_path(indexer, value, name)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexing.py", line 2044, in _setitem_with_indexer_split_path
+    self._setitem_single_column(loc, value, pi)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexing.py", line 2181, in _setitem_single_column
+    self.obj._mgr.column_setitem(loc, plane_indexer, value)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\internals\managers.py", line 1528, in column_setitem
+    new_mgr = col_mgr.setitem((idx,), value)
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\internals\managers.py", line 607, in setitem
+    return self.apply("setitem", indexer=indexer, value=value)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\internals\managers.py", line 445, in apply
+    applied = getattr(b, f)(**kwargs)
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\internals\blocks.py", line 1118, in setitem
+    nb = self.coerce_to_target_dtype(value, raise_on_upcast=True)
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\internals\blocks.py", line 468, in coerce_to_target_dtype
+    raise TypeError(f"Invalid value '{other}' for dtype '{self.values.dtype}'")
+TypeError: Invalid value 'Kolkata Customs Clearance' for dtype 'float64'
+2026-06-27 21:52:24 | INFO     | aftership_api        | AfterShipAPI initialised — mode: DEMO
+2026-06-27 21:52:24 | INFO     | tracker              | Tracker ready — courier: AfterShip
+2026-06-27 21:52:24 | INFO     | tracker              | 📂  Loading file: C:/Users/admin/Downloads/logisync_demo.xlsx
+2026-06-27 21:52:24 | INFO     | excel_handler        | ExcelHandler created for: C:/Users/admin/Downloads/logisync_demo.xlsx
+2026-06-27 21:52:24 | INFO     | excel_handler        | Reading Excel file: C:/Users/admin/Downloads/logisync_demo.xlsx
+2026-06-27 21:52:24 | INFO     | excel_handler        | Loaded 8 valid tracking rows.
+2026-06-27 21:52:24 | DEBUG    | excel_handler        | get_tracking_numbers() → 8 items
+2026-06-27 21:52:24 | INFO     | tracker              | ✅  Found 8 tracking number(s).
+2026-06-27 21:52:24 | INFO     | tracker              | 🌐  Fetching data via AfterShip...
+
+2026-06-27 21:52:24 | INFO     | tracker              |   [1/8]  Checking: TRK-2024-001
+2026-06-27 21:52:24 | DEBUG    | aftership_api        | Fetching: TRK-2024-001
+2026-06-27 21:52:24 | INFO     | aftership_api        | [DEMO] TRK-2024-001 → Out for Delivery @ Bangalore Distribution Hub
+2026-06-27 21:52:24 | INFO     | tracker              | ❌  Critical error: Invalid value 'Bangalore Distribution Hub' for dtype 'float64'
+2026-06-27 21:52:24 | ERROR    | tracker              | Unhandled exception in Tracker.run()
+Traceback (most recent call last):
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\internals\blocks.py", line 1115, in setitem
+    casted = np_can_hold_element(values.dtype, value)
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\dtypes\cast.py", line 1792, in np_can_hold_element
+    raise LossySetitemError
+pandas.errors.LossySetitemError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\admin\OneDrive\Desktop\LogiSync\core\tracker.py", line 150, in run
+    handler.update_row(
+    ~~~~~~~~~~~~~~~~~~^
+        tracking_number = result.tracking_number,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        location        = result.location,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        status          = result.status,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "c:\Users\admin\OneDrive\Desktop\LogiSync\core\excel_handler.py", line 159, in update_row
+    self.dataframe.loc[mask, COL_LOCATION]     = location
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexing.py", line 938, in __setitem__
+    iloc._setitem_with_indexer(indexer, value, self.name)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexing.py", line 1953, in _setitem_with_indexer
+    self._setitem_with_indexer_split_path(indexer, value, name)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexing.py", line 2044, in _setitem_with_indexer_split_path
+    self._setitem_single_column(loc, value, pi)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexing.py", line 2181, in _setitem_single_column
+    self.obj._mgr.column_setitem(loc, plane_indexer, value)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\internals\managers.py", line 1528, in column_setitem
+    new_mgr = col_mgr.setitem((idx,), value)
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\internals\managers.py", line 607, in setitem
+    return self.apply("setitem", indexer=indexer, value=value)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\internals\managers.py", line 445, in apply
+    applied = getattr(b, f)(**kwargs)
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\internals\blocks.py", line 1118, in setitem
+    nb = self.coerce_to_target_dtype(value, raise_on_upcast=True)
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\internals\blocks.py", line 468, in coerce_to_target_dtype
+    raise TypeError(f"Invalid value '{other}' for dtype '{self.values.dtype}'")
+TypeError: Invalid value 'Bangalore Distribution Hub' for dtype 'float64'
+2026-06-27 21:52:24 | ERROR    | app_window           | Error in background run
+Traceback (most recent call last):
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\internals\blocks.py", line 1115, in setitem
+    casted = np_can_hold_element(values.dtype, value)
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\dtypes\cast.py", line 1792, in np_can_hold_element
+    raise LossySetitemError
+pandas.errors.LossySetitemError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\admin\OneDrive\Desktop\LogiSync\gui\app_window.py", line 492, in _bg_run
+    session = tracker.run(
+        file_path         = self.file_path.get(),
+        progress_callback = self._on_progress,   # called per tracking number
+        log_callback      = self._thread_log,    # thread-safe log relay
+    )
+  File "c:\Users\admin\OneDrive\Desktop\LogiSync\core\tracker.py", line 150, in run
+    handler.update_row(
+    ~~~~~~~~~~~~~~~~~~^
+        tracking_number = result.tracking_number,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        location        = result.location,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        status          = result.status,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "c:\Users\admin\OneDrive\Desktop\LogiSync\core\excel_handler.py", line 159, in update_row
+    self.dataframe.loc[mask, COL_LOCATION]     = location
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexing.py", line 938, in __setitem__
+    iloc._setitem_with_indexer(indexer, value, self.name)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexing.py", line 1953, in _setitem_with_indexer
+    self._setitem_with_indexer_split_path(indexer, value, name)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexing.py", line 2044, in _setitem_with_indexer_split_path
+    self._setitem_single_column(loc, value, pi)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexing.py", line 2181, in _setitem_single_column
+    self.obj._mgr.column_setitem(loc, plane_indexer, value)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\internals\managers.py", line 1528, in column_setitem
+    new_mgr = col_mgr.setitem((idx,), value)
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\internals\managers.py", line 607, in setitem
+    return self.apply("setitem", indexer=indexer, value=value)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\internals\managers.py", line 445, in apply
+    applied = getattr(b, f)(**kwargs)
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\internals\blocks.py", line 1118, in setitem
+    nb = self.coerce_to_target_dtype(value, raise_on_upcast=True)
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\internals\blocks.py", line 468, in coerce_to_target_dtype
+    raise TypeError(f"Invalid value '{other}' for dtype '{self.values.dtype}'")
+TypeError: Invalid value 'Bangalore Distribution Hub' for dtype 'float64'
+2026-06-27 21:56:40 | INFO     | main                 | LogiSync closed.
+2026-06-27 21:59:35 | INFO     | main                 | ==================================================
+2026-06-27 21:59:35 | INFO     | main                 |   LogiSync v1.0.0 — Starting
+2026-06-27 21:59:35 | INFO     | main                 | ==================================================
+2026-06-27 21:59:39 | INFO     | app_window           | LogiSync v1.0.0 GUI ready.
+2026-06-27 21:59:39 | INFO     | app_window           | Entering Tkinter main loop.
+2026-06-27 21:59:49 | INFO     | aftership_api        | AfterShipAPI initialised — mode: DEMO
+2026-06-27 21:59:49 | INFO     | tracker              | Tracker ready — courier: AfterShip
+2026-06-27 21:59:49 | INFO     | tracker              | 📂  Loading file: C:/Users/admin/Downloads/logisync_demo.xlsx
+2026-06-27 21:59:49 | INFO     | excel_handler        | ExcelHandler created for: C:/Users/admin/Downloads/logisync_demo.xlsx
+2026-06-27 21:59:49 | INFO     | excel_handler        | Reading Excel file: C:/Users/admin/Downloads/logisync_demo.xlsx
+2026-06-27 21:59:49 | INFO     | excel_handler        | Loaded 8 valid tracking rows.
+2026-06-27 21:59:49 | DEBUG    | excel_handler        | get_tracking_numbers() → 8 items
+2026-06-27 21:59:49 | INFO     | tracker              | ✅  Found 8 tracking number(s).
+2026-06-27 21:59:49 | INFO     | tracker              | 🌐  Fetching data via AfterShip...
+
+2026-06-27 21:59:49 | INFO     | tracker              |   [1/8]  Checking: TRK-2024-001
+2026-06-27 21:59:49 | DEBUG    | aftership_api        | Fetching: TRK-2024-001
+2026-06-27 21:59:50 | INFO     | aftership_api        | [DEMO] TRK-2024-001 → Out for Delivery @ Bangalore Distribution Hub
+2026-06-27 21:59:50 | DEBUG    | excel_handler        | Updated 'TRK-2024-001' → Out for Delivery @ Bangalore Distribution Hub
+2026-06-27 21:59:50 | INFO     | tracker              |         ✅  Out for Delivery  @  Bangalore Distribution Hub
+2026-06-27 21:59:50 | INFO     | tracker              |   [2/8]  Checking: TRK-2024-002
+2026-06-27 21:59:50 | DEBUG    | aftership_api        | Fetching: TRK-2024-002
+2026-06-27 21:59:50 | INFO     | aftership_api        | [DEMO] TRK-2024-002 → Exception / Delay @ Kolkata Customs Clearance
+2026-06-27 21:59:50 | DEBUG    | excel_handler        | Updated 'TRK-2024-002' → Exception / Delay @ Kolkata Customs Clearance
+2026-06-27 21:59:50 | INFO     | tracker              |         ✅  Exception / Delay  @  Kolkata Customs Clearance
+2026-06-27 21:59:50 | INFO     | tracker              |   [3/8]  Checking: TRK-2024-003
+2026-06-27 21:59:50 | DEBUG    | aftership_api        | Fetching: TRK-2024-003
+2026-06-27 21:59:51 | INFO     | aftership_api        | [DEMO] TRK-2024-003 → In Transit @ Ahmedabad Regional Centre
+2026-06-27 21:59:51 | DEBUG    | excel_handler        | Updated 'TRK-2024-003' → In Transit @ Ahmedabad Regional Centre
+2026-06-27 21:59:51 | INFO     | tracker              |         ✅  In Transit  @  Ahmedabad Regional Centre
+2026-06-27 21:59:51 | INFO     | tracker              |   [4/8]  Checking: TRK-2024-004
+2026-06-27 21:59:51 | DEBUG    | aftership_api        | Fetching: TRK-2024-004
+2026-06-27 21:59:52 | INFO     | aftership_api        | [DEMO] TRK-2024-004 → Out for Delivery @ Jaipur Last-Mile Facility
+2026-06-27 21:59:52 | DEBUG    | excel_handler        | Updated 'TRK-2024-004' → Out for Delivery @ Jaipur Last-Mile Facility
+2026-06-27 21:59:52 | INFO     | tracker              |         ✅  Out for Delivery  @  Jaipur Last-Mile Facility
+2026-06-27 21:59:52 | INFO     | tracker              |   [5/8]  Checking: TRK-2024-005
+2026-06-27 21:59:52 | DEBUG    | aftership_api        | Fetching: TRK-2024-005
+2026-06-27 21:59:52 | INFO     | aftership_api        | [DEMO] TRK-2024-005 → In Transit @ Mumbai Central Hub
+2026-06-27 21:59:52 | DEBUG    | excel_handler        | Updated 'TRK-2024-005' → In Transit @ Mumbai Central Hub
+2026-06-27 21:59:52 | INFO     | tracker              |         ✅  In Transit  @  Mumbai Central Hub
+2026-06-27 21:59:52 | INFO     | tracker              |   [6/8]  Checking: TRK-2024-006
+2026-06-27 21:59:52 | DEBUG    | aftership_api        | Fetching: TRK-2024-006
+2026-06-27 21:59:53 | INFO     | aftership_api        | [DEMO] TRK-2024-006 → Out for Delivery @ Delhi Gateway Facility
+2026-06-27 21:59:53 | DEBUG    | excel_handler        | Updated 'TRK-2024-006' → Out for Delivery @ Delhi Gateway Facility
+2026-06-27 21:59:53 | INFO     | tracker              |         ✅  Out for Delivery  @  Delhi Gateway Facility
+2026-06-27 21:59:53 | INFO     | tracker              |   [7/8]  Checking: INVALID-999
+2026-06-27 21:59:53 | DEBUG    | aftership_api        | Fetching: INVALID-999
+2026-06-27 21:59:53 | WARNING  | aftership_api        | [DEMO] Simulating not-found for: INVALID-999
+2026-06-27 21:59:53 | DEBUG    | excel_handler        | Updated 'INVALID-999' → Failed — Check Tracking No @ N/A
+2026-06-27 21:59:53 | INFO     | tracker              |         ❌  Failed — Tracking number not found in courier system
+2026-06-27 21:59:54 | INFO     | tracker              |   [8/8]  Checking: TRK-2024-008
+2026-06-27 21:59:54 | DEBUG    | aftership_api        | Fetching: TRK-2024-008
+2026-06-27 21:59:54 | INFO     | aftership_api        | [DEMO] TRK-2024-008 → In Transit @ Pune Sorting Centre
+2026-06-27 21:59:54 | DEBUG    | excel_handler        | Updated 'TRK-2024-008' → In Transit @ Pune Sorting Centre
+2026-06-27 21:59:54 | INFO     | tracker              |         ✅  In Transit  @  Pune Sorting Centre
+2026-06-27 21:59:54 | INFO     | tracker              | 
+💾  Saving updated file...
+2026-06-27 21:59:54 | INFO     | tracker              | ❌  Critical error: [Errno 13] Permission denied: 'C:/Users/admin/Downloads/logisync_demo.xlsx'
+2026-06-27 21:59:54 | ERROR    | tracker              | Unhandled exception in Tracker.run()
+Traceback (most recent call last):
+  File "c:\Users\admin\OneDrive\Desktop\LogiSync\core\tracker.py", line 172, in run
+    saved_path = handler.save()
+  File "c:\Users\admin\OneDrive\Desktop\LogiSync\core\excel_handler.py", line 193, in save
+    self.dataframe.to_excel(target, index=False, engine="openpyxl")
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\generic.py", line 2312, in to_excel
+    formatter.write(
+    ~~~~~~~~~~~~~~~^
+        excel_writer,
+        ^^^^^^^^^^^^^
+    ...<6 lines>...
+        engine_kwargs=engine_kwargs,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\io\formats\excel.py", line 1003, in write
+    writer = ExcelWriter(
+        writer,
+    ...<2 lines>...
+        engine_kwargs=engine_kwargs,
+    )
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\io\excel\_openpyxl.py", line 62, in __init__
+    super().__init__(
+    ~~~~~~~~~~~~~~~~^
+        path,
+        ^^^^^
+    ...<3 lines>...
+        engine_kwargs=engine_kwargs,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\io\excel\_base.py", line 1281, in __init__
+    self._handles = get_handle(
+                    ~~~~~~~~~~^
+        path, mode, storage_options=storage_options, is_text=False
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\io\common.py", line 939, in get_handle
+    handle = open(handle, ioargs.mode)
+PermissionError: [Errno 13] Permission denied: 'C:/Users/admin/Downloads/logisync_demo.xlsx'
+2026-06-27 21:59:54 | ERROR    | app_window           | Error in background run
+Traceback (most recent call last):
+  File "c:\Users\admin\OneDrive\Desktop\LogiSync\gui\app_window.py", line 492, in _bg_run
+    session = tracker.run(
+        file_path         = self.file_path.get(),
+        progress_callback = self._on_progress,   # called per tracking number
+        log_callback      = self._thread_log,    # thread-safe log relay
+    )
+  File "c:\Users\admin\OneDrive\Desktop\LogiSync\core\tracker.py", line 172, in run
+    saved_path = handler.save()
+  File "c:\Users\admin\OneDrive\Desktop\LogiSync\core\excel_handler.py", line 193, in save
+    self.dataframe.to_excel(target, index=False, engine="openpyxl")
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\generic.py", line 2312, in to_excel
+    formatter.write(
+    ~~~~~~~~~~~~~~~^
+        excel_writer,
+        ^^^^^^^^^^^^^
+    ...<6 lines>...
+        engine_kwargs=engine_kwargs,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\io\formats\excel.py", line 1003, in write
+    writer = ExcelWriter(
+        writer,
+    ...<2 lines>...
+        engine_kwargs=engine_kwargs,
+    )
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\io\excel\_openpyxl.py", line 62, in __init__
+    super().__init__(
+    ~~~~~~~~~~~~~~~~^
+        path,
+        ^^^^^
+    ...<3 lines>...
+        engine_kwargs=engine_kwargs,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\io\excel\_base.py", line 1281, in __init__
+    self._handles = get_handle(
+                    ~~~~~~~~~~^
+        path, mode, storage_options=storage_options, is_text=False
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\io\common.py", line 939, in get_handle
+    handle = open(handle, ioargs.mode)
+PermissionError: [Errno 13] Permission denied: 'C:/Users/admin/Downloads/logisync_demo.xlsx'
+2026-06-27 22:03:17 | INFO     | main                 | LogiSync closed.
+2026-06-27 22:03:18 | INFO     | main                 | ==================================================
+2026-06-27 22:03:18 | INFO     | main                 |   LogiSync v1.0.0 — Starting
+2026-06-27 22:03:18 | INFO     | main                 | ==================================================
+2026-06-27 22:03:22 | INFO     | app_window           | LogiSync v1.0.0 GUI ready.
+2026-06-27 22:03:22 | INFO     | app_window           | Entering Tkinter main loop.
+2026-06-27 22:03:31 | INFO     | aftership_api        | AfterShipAPI initialised — mode: DEMO
+2026-06-27 22:03:31 | INFO     | tracker              | Tracker ready — courier: AfterShip
+2026-06-27 22:03:31 | INFO     | tracker              | 📂  Loading file: C:/Users/admin/Downloads/logisync_demo.xlsx
+2026-06-27 22:03:31 | INFO     | excel_handler        | ExcelHandler created for: C:/Users/admin/Downloads/logisync_demo.xlsx
+2026-06-27 22:03:31 | INFO     | excel_handler        | Reading Excel file: C:/Users/admin/Downloads/logisync_demo.xlsx
+2026-06-27 22:03:31 | INFO     | excel_handler        | Loaded 8 valid tracking rows.
+2026-06-27 22:03:31 | DEBUG    | excel_handler        | get_tracking_numbers() → 8 items
+2026-06-27 22:03:31 | INFO     | tracker              | ✅  Found 8 tracking number(s).
+2026-06-27 22:03:31 | INFO     | tracker              | 🌐  Fetching data via AfterShip...
+
+2026-06-27 22:03:31 | INFO     | tracker              |   [1/8]  Checking: TRK-2024-001
+2026-06-27 22:03:31 | DEBUG    | aftership_api        | Fetching: TRK-2024-001
+2026-06-27 22:03:32 | INFO     | aftership_api        | [DEMO] TRK-2024-001 → Out for Delivery @ Bangalore Distribution Hub
+2026-06-27 22:03:32 | DEBUG    | excel_handler        | Updated 'TRK-2024-001' → Out for Delivery @ Bangalore Distribution Hub
+2026-06-27 22:03:32 | INFO     | tracker              |         ✅  Out for Delivery  @  Bangalore Distribution Hub
+2026-06-27 22:03:32 | INFO     | tracker              |   [2/8]  Checking: TRK-2024-002
+2026-06-27 22:03:32 | DEBUG    | aftership_api        | Fetching: TRK-2024-002
+2026-06-27 22:03:32 | INFO     | aftership_api        | [DEMO] TRK-2024-002 → Exception / Delay @ Kolkata Customs Clearance
+2026-06-27 22:03:32 | DEBUG    | excel_handler        | Updated 'TRK-2024-002' → Exception / Delay @ Kolkata Customs Clearance
+2026-06-27 22:03:32 | INFO     | tracker              |         ✅  Exception / Delay  @  Kolkata Customs Clearance
+2026-06-27 22:03:32 | INFO     | tracker              |   [3/8]  Checking: TRK-2024-003
+2026-06-27 22:03:32 | DEBUG    | aftership_api        | Fetching: TRK-2024-003
+2026-06-27 22:03:33 | INFO     | aftership_api        | [DEMO] TRK-2024-003 → In Transit @ Ahmedabad Regional Centre
+2026-06-27 22:03:33 | DEBUG    | excel_handler        | Updated 'TRK-2024-003' → In Transit @ Ahmedabad Regional Centre
+2026-06-27 22:03:33 | INFO     | tracker              |         ✅  In Transit  @  Ahmedabad Regional Centre
+2026-06-27 22:03:33 | INFO     | tracker              |   [4/8]  Checking: TRK-2024-004
+2026-06-27 22:03:33 | DEBUG    | aftership_api        | Fetching: TRK-2024-004
+2026-06-27 22:03:34 | INFO     | aftership_api        | [DEMO] TRK-2024-004 → Out for Delivery @ Jaipur Last-Mile Facility
+2026-06-27 22:03:34 | DEBUG    | excel_handler        | Updated 'TRK-2024-004' → Out for Delivery @ Jaipur Last-Mile Facility
+2026-06-27 22:03:34 | INFO     | tracker              |         ✅  Out for Delivery  @  Jaipur Last-Mile Facility
+2026-06-27 22:03:34 | INFO     | tracker              |   [5/8]  Checking: TRK-2024-005
+2026-06-27 22:03:34 | DEBUG    | aftership_api        | Fetching: TRK-2024-005
+2026-06-27 22:03:34 | INFO     | aftership_api        | [DEMO] TRK-2024-005 → In Transit @ Mumbai Central Hub
+2026-06-27 22:03:34 | DEBUG    | excel_handler        | Updated 'TRK-2024-005' → In Transit @ Mumbai Central Hub
+2026-06-27 22:03:34 | INFO     | tracker              |         ✅  In Transit  @  Mumbai Central Hub
+2026-06-27 22:03:34 | INFO     | tracker              |   [6/8]  Checking: TRK-2024-006
+2026-06-27 22:03:34 | DEBUG    | aftership_api        | Fetching: TRK-2024-006
+2026-06-27 22:03:35 | INFO     | aftership_api        | [DEMO] TRK-2024-006 → Out for Delivery @ Delhi Gateway Facility
+2026-06-27 22:03:35 | DEBUG    | excel_handler        | Updated 'TRK-2024-006' → Out for Delivery @ Delhi Gateway Facility
+2026-06-27 22:03:35 | INFO     | tracker              |         ✅  Out for Delivery  @  Delhi Gateway Facility
+2026-06-27 22:03:35 | INFO     | tracker              |   [7/8]  Checking: INVALID-999
+2026-06-27 22:03:35 | DEBUG    | aftership_api        | Fetching: INVALID-999
+2026-06-27 22:03:35 | WARNING  | aftership_api        | [DEMO] Simulating not-found for: INVALID-999
+2026-06-27 22:03:35 | DEBUG    | excel_handler        | Updated 'INVALID-999' → Failed — Check Tracking No @ N/A
+2026-06-27 22:03:35 | INFO     | tracker              |         ❌  Failed — Tracking number not found in courier system
+2026-06-27 22:03:35 | INFO     | tracker              |   [8/8]  Checking: TRK-2024-008
+2026-06-27 22:03:35 | DEBUG    | aftership_api        | Fetching: TRK-2024-008
+2026-06-27 22:03:36 | INFO     | aftership_api        | [DEMO] TRK-2024-008 → In Transit @ Pune Sorting Centre
+2026-06-27 22:03:36 | DEBUG    | excel_handler        | Updated 'TRK-2024-008' → In Transit @ Pune Sorting Centre
+2026-06-27 22:03:36 | INFO     | tracker              |         ✅  In Transit  @  Pune Sorting Centre
+2026-06-27 22:03:36 | INFO     | tracker              | 
+💾  Saving updated file...
+2026-06-27 22:03:36 | INFO     | tracker              | ❌  Critical error: [Errno 13] Permission denied: 'C:/Users/admin/Downloads/logisync_demo.xlsx'
+2026-06-27 22:03:36 | ERROR    | tracker              | Unhandled exception in Tracker.run()
+Traceback (most recent call last):
+  File "c:\Users\admin\OneDrive\Desktop\LogiSync\core\tracker.py", line 172, in run
+    saved_path = handler.save()
+  File "c:\Users\admin\OneDrive\Desktop\LogiSync\core\excel_handler.py", line 194, in save
+    self.dataframe.to_excel(target, index=False, engine="openpyxl")
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\generic.py", line 2312, in to_excel
+    formatter.write(
+    ~~~~~~~~~~~~~~~^
+        excel_writer,
+        ^^^^^^^^^^^^^
+    ...<6 lines>...
+        engine_kwargs=engine_kwargs,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\io\formats\excel.py", line 1003, in write
+    writer = ExcelWriter(
+        writer,
+    ...<2 lines>...
+        engine_kwargs=engine_kwargs,
+    )
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\io\excel\_openpyxl.py", line 62, in __init__
+    super().__init__(
+    ~~~~~~~~~~~~~~~~^
+        path,
+        ^^^^^
+    ...<3 lines>...
+        engine_kwargs=engine_kwargs,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\io\excel\_base.py", line 1281, in __init__
+    self._handles = get_handle(
+                    ~~~~~~~~~~^
+        path, mode, storage_options=storage_options, is_text=False
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\io\common.py", line 939, in get_handle
+    handle = open(handle, ioargs.mode)
+PermissionError: [Errno 13] Permission denied: 'C:/Users/admin/Downloads/logisync_demo.xlsx'
+2026-06-27 22:03:36 | ERROR    | app_window           | Error in background run
+Traceback (most recent call last):
+  File "c:\Users\admin\OneDrive\Desktop\LogiSync\gui\app_window.py", line 492, in _bg_run
+    session = tracker.run(
+        file_path         = self.file_path.get(),
+        progress_callback = self._on_progress,   # called per tracking number
+        log_callback      = self._thread_log,    # thread-safe log relay
+    )
+  File "c:\Users\admin\OneDrive\Desktop\LogiSync\core\tracker.py", line 172, in run
+    saved_path = handler.save()
+  File "c:\Users\admin\OneDrive\Desktop\LogiSync\core\excel_handler.py", line 194, in save
+    self.dataframe.to_excel(target, index=False, engine="openpyxl")
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\generic.py", line 2312, in to_excel
+    formatter.write(
+    ~~~~~~~~~~~~~~~^
+        excel_writer,
+        ^^^^^^^^^^^^^
+    ...<6 lines>...
+        engine_kwargs=engine_kwargs,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\io\formats\excel.py", line 1003, in write
+    writer = ExcelWriter(
+        writer,
+    ...<2 lines>...
+        engine_kwargs=engine_kwargs,
+    )
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\io\excel\_openpyxl.py", line 62, in __init__
+    super().__init__(
+    ~~~~~~~~~~~~~~~~^
+        path,
+        ^^^^^
+    ...<3 lines>...
+        engine_kwargs=engine_kwargs,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\io\excel\_base.py", line 1281, in __init__
+    self._handles = get_handle(
+                    ~~~~~~~~~~^
+        path, mode, storage_options=storage_options, is_text=False
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\io\common.py", line 939, in get_handle
+    handle = open(handle, ioargs.mode)
+PermissionError: [Errno 13] Permission denied: 'C:/Users/admin/Downloads/logisync_demo.xlsx'
+2026-06-27 22:04:44 | INFO     | aftership_api        | AfterShipAPI initialised — mode: DEMO
+2026-06-27 22:04:44 | INFO     | tracker              | Tracker ready — courier: AfterShip
+2026-06-27 22:04:44 | INFO     | tracker              | 📂  Loading file: C:/Users/admin/Downloads/Tracking Status (Autosaved).xlsx
+2026-06-27 22:04:44 | INFO     | excel_handler        | ExcelHandler created for: C:/Users/admin/Downloads/Tracking Status (Autosaved).xlsx
+2026-06-27 22:04:44 | INFO     | excel_handler        | Reading Excel file: C:/Users/admin/Downloads/Tracking Status (Autosaved).xlsx
+2026-06-27 22:04:44 | INFO     | tracker              | ❌  Critical error: Required column 'Tracking No' not found.
+Columns found in file: ['Invoice No', 'Invoice Date', 'Customer Name', 'Matreial Qty', 'Material', 'Transpoter Name', 'EWAY-BILL', 'Vehicle Number/Docket No', 'Delivery Date', 'Delivery Status', 'POD Status']
+Check config/settings.py → COL_TRACKING_NUMBER
+2026-06-27 22:04:44 | ERROR    | tracker              | Unhandled exception in Tracker.run()
+Traceback (most recent call last):
+  File "c:\Users\admin\OneDrive\Desktop\LogiSync\core\tracker.py", line 126, in run
+    handler.load()
+    ~~~~~~~~~~~~^^
+  File "c:\Users\admin\OneDrive\Desktop\LogiSync\core\excel_handler.py", line 78, in load
+    raise ValueError(
+    ...<3 lines>...
+    )
+ValueError: Required column 'Tracking No' not found.
+Columns found in file: ['Invoice No', 'Invoice Date', 'Customer Name', 'Matreial Qty', 'Material', 'Transpoter Name', 'EWAY-BILL', 'Vehicle Number/Docket No', 'Delivery Date', 'Delivery Status', 'POD Status']
+Check config/settings.py → COL_TRACKING_NUMBER
+2026-06-27 22:04:44 | ERROR    | app_window           | Error in background run
+Traceback (most recent call last):
+  File "c:\Users\admin\OneDrive\Desktop\LogiSync\gui\app_window.py", line 492, in _bg_run
+    session = tracker.run(
+        file_path         = self.file_path.get(),
+        progress_callback = self._on_progress,   # called per tracking number
+        log_callback      = self._thread_log,    # thread-safe log relay
+    )
+  File "c:\Users\admin\OneDrive\Desktop\LogiSync\core\tracker.py", line 126, in run
+    handler.load()
+    ~~~~~~~~~~~~^^
+  File "c:\Users\admin\OneDrive\Desktop\LogiSync\core\excel_handler.py", line 78, in load
+    raise ValueError(
+    ...<3 lines>...
+    )
+ValueError: Required column 'Tracking No' not found.
+Columns found in file: ['Invoice No', 'Invoice Date', 'Customer Name', 'Matreial Qty', 'Material', 'Transpoter Name', 'EWAY-BILL', 'Vehicle Number/Docket No', 'Delivery Date', 'Delivery Status', 'POD Status']
+Check config/settings.py → COL_TRACKING_NUMBER
+2026-06-27 22:04:57 | INFO     | aftership_api        | AfterShipAPI initialised — mode: DEMO
+2026-06-27 22:04:57 | INFO     | tracker              | Tracker ready — courier: AfterShip
+2026-06-27 22:04:57 | INFO     | tracker              | 📂  Loading file: C:/Users/admin/Downloads/logisync_demo.xlsx
+2026-06-27 22:04:57 | INFO     | excel_handler        | ExcelHandler created for: C:/Users/admin/Downloads/logisync_demo.xlsx
+2026-06-27 22:04:57 | INFO     | excel_handler        | Reading Excel file: C:/Users/admin/Downloads/logisync_demo.xlsx
+2026-06-27 22:04:57 | INFO     | excel_handler        | Loaded 8 valid tracking rows.
+2026-06-27 22:04:57 | DEBUG    | excel_handler        | get_tracking_numbers() → 8 items
+2026-06-27 22:04:57 | INFO     | tracker              | ✅  Found 8 tracking number(s).
+2026-06-27 22:04:57 | INFO     | tracker              | 🌐  Fetching data via AfterShip...
+
+2026-06-27 22:04:57 | INFO     | tracker              |   [1/8]  Checking: TRK-2024-001
+2026-06-27 22:04:57 | DEBUG    | aftership_api        | Fetching: TRK-2024-001
+2026-06-27 22:04:58 | INFO     | aftership_api        | [DEMO] TRK-2024-001 → Out for Delivery @ Bangalore Distribution Hub
+2026-06-27 22:04:58 | DEBUG    | excel_handler        | Updated 'TRK-2024-001' → Out for Delivery @ Bangalore Distribution Hub
+2026-06-27 22:04:58 | INFO     | tracker              |         ✅  Out for Delivery  @  Bangalore Distribution Hub
+2026-06-27 22:04:58 | INFO     | tracker              |   [2/8]  Checking: TRK-2024-002
+2026-06-27 22:04:58 | DEBUG    | aftership_api        | Fetching: TRK-2024-002
+2026-06-27 22:04:59 | INFO     | aftership_api        | [DEMO] TRK-2024-002 → Exception / Delay @ Kolkata Customs Clearance
+2026-06-27 22:04:59 | DEBUG    | excel_handler        | Updated 'TRK-2024-002' → Exception / Delay @ Kolkata Customs Clearance
+2026-06-27 22:04:59 | INFO     | tracker              |         ✅  Exception / Delay  @  Kolkata Customs Clearance
+2026-06-27 22:04:59 | INFO     | tracker              |   [3/8]  Checking: TRK-2024-003
+2026-06-27 22:04:59 | DEBUG    | aftership_api        | Fetching: TRK-2024-003
+2026-06-27 22:04:59 | INFO     | aftership_api        | [DEMO] TRK-2024-003 → In Transit @ Ahmedabad Regional Centre
+2026-06-27 22:04:59 | DEBUG    | excel_handler        | Updated 'TRK-2024-003' → In Transit @ Ahmedabad Regional Centre
+2026-06-27 22:04:59 | INFO     | tracker              |         ✅  In Transit  @  Ahmedabad Regional Centre
+2026-06-27 22:04:59 | INFO     | tracker              |   [4/8]  Checking: TRK-2024-004
+2026-06-27 22:04:59 | DEBUG    | aftership_api        | Fetching: TRK-2024-004
+2026-06-27 22:05:00 | INFO     | aftership_api        | [DEMO] TRK-2024-004 → Out for Delivery @ Jaipur Last-Mile Facility
+2026-06-27 22:05:00 | DEBUG    | excel_handler        | Updated 'TRK-2024-004' → Out for Delivery @ Jaipur Last-Mile Facility
+2026-06-27 22:05:00 | INFO     | tracker              |         ✅  Out for Delivery  @  Jaipur Last-Mile Facility
+2026-06-27 22:05:00 | INFO     | tracker              |   [5/8]  Checking: TRK-2024-005
+2026-06-27 22:05:00 | DEBUG    | aftership_api        | Fetching: TRK-2024-005
+2026-06-27 22:05:00 | INFO     | aftership_api        | [DEMO] TRK-2024-005 → In Transit @ Mumbai Central Hub
+2026-06-27 22:05:00 | DEBUG    | excel_handler        | Updated 'TRK-2024-005' → In Transit @ Mumbai Central Hub
+2026-06-27 22:05:00 | INFO     | tracker              |         ✅  In Transit  @  Mumbai Central Hub
+2026-06-27 22:05:00 | INFO     | tracker              |   [6/8]  Checking: TRK-2024-006
+2026-06-27 22:05:00 | DEBUG    | aftership_api        | Fetching: TRK-2024-006
+2026-06-27 22:05:01 | INFO     | aftership_api        | [DEMO] TRK-2024-006 → Out for Delivery @ Delhi Gateway Facility
+2026-06-27 22:05:01 | DEBUG    | excel_handler        | Updated 'TRK-2024-006' → Out for Delivery @ Delhi Gateway Facility
+2026-06-27 22:05:01 | INFO     | tracker              |         ✅  Out for Delivery  @  Delhi Gateway Facility
+2026-06-27 22:05:01 | INFO     | tracker              |   [7/8]  Checking: INVALID-999
+2026-06-27 22:05:01 | DEBUG    | aftership_api        | Fetching: INVALID-999
+2026-06-27 22:05:02 | WARNING  | aftership_api        | [DEMO] Simulating not-found for: INVALID-999
+2026-06-27 22:05:02 | DEBUG    | excel_handler        | Updated 'INVALID-999' → Failed — Check Tracking No @ N/A
+2026-06-27 22:05:02 | INFO     | tracker              |         ❌  Failed — Tracking number not found in courier system
+2026-06-27 22:05:02 | INFO     | tracker              |   [8/8]  Checking: TRK-2024-008
+2026-06-27 22:05:02 | DEBUG    | aftership_api        | Fetching: TRK-2024-008
+2026-06-27 22:05:02 | INFO     | aftership_api        | [DEMO] TRK-2024-008 → In Transit @ Pune Sorting Centre
+2026-06-27 22:05:02 | DEBUG    | excel_handler        | Updated 'TRK-2024-008' → In Transit @ Pune Sorting Centre
+2026-06-27 22:05:02 | INFO     | tracker              |         ✅  In Transit  @  Pune Sorting Centre
+2026-06-27 22:05:02 | INFO     | tracker              | 
+💾  Saving updated file...
+2026-06-27 22:05:02 | INFO     | excel_handler        | Saved 8 rows to: C:/Users/admin/Downloads/logisync_demo.xlsx
+2026-06-27 22:05:02 | INFO     | tracker              | ✅  Saved to: C:/Users/admin/Downloads/logisync_demo.xlsx
+2026-06-27 22:05:02 | INFO     | tracker              | 
+────────────────────────────────────────────────
+2026-06-27 22:05:02 | INFO     | tracker              | Session: 7/8 succeeded, 1 failed in 5.1s
+2026-06-27 22:06:27 | INFO     | aftership_api        | AfterShipAPI initialised — mode: DEMO
+2026-06-27 22:06:27 | INFO     | tracker              | Tracker ready — courier: AfterShip
+2026-06-27 22:06:27 | INFO     | tracker              | 📂  Loading file: C:/Users/admin/Downloads/logisync_demo.xlsx
+2026-06-27 22:06:27 | INFO     | excel_handler        | ExcelHandler created for: C:/Users/admin/Downloads/logisync_demo.xlsx
+2026-06-27 22:06:27 | INFO     | excel_handler        | Reading Excel file: C:/Users/admin/Downloads/logisync_demo.xlsx
+2026-06-27 22:06:27 | INFO     | excel_handler        | Loaded 9 valid tracking rows.
+2026-06-27 22:06:27 | DEBUG    | excel_handler        | get_tracking_numbers() → 9 items
+2026-06-27 22:06:27 | INFO     | tracker              | ✅  Found 9 tracking number(s).
+2026-06-27 22:06:27 | INFO     | tracker              | 🌐  Fetching data via AfterShip...
+
+2026-06-27 22:06:27 | INFO     | tracker              |   [1/9]  Checking: TRK-2024-001
+2026-06-27 22:06:27 | DEBUG    | aftership_api        | Fetching: TRK-2024-001
+2026-06-27 22:06:28 | INFO     | aftership_api        | [DEMO] TRK-2024-001 → Out for Delivery @ Bangalore Distribution Hub
+2026-06-27 22:06:28 | DEBUG    | excel_handler        | Updated 'TRK-2024-001' → Out for Delivery @ Bangalore Distribution Hub
+2026-06-27 22:06:28 | INFO     | tracker              |         ✅  Out for Delivery  @  Bangalore Distribution Hub
+2026-06-27 22:06:28 | INFO     | tracker              |   [2/9]  Checking: TRK-2024-002
+2026-06-27 22:06:28 | DEBUG    | aftership_api        | Fetching: TRK-2024-002
+2026-06-27 22:06:28 | INFO     | aftership_api        | [DEMO] TRK-2024-002 → Exception / Delay @ Kolkata Customs Clearance
+2026-06-27 22:06:28 | DEBUG    | excel_handler        | Updated 'TRK-2024-002' → Exception / Delay @ Kolkata Customs Clearance
+2026-06-27 22:06:28 | INFO     | tracker              |         ✅  Exception / Delay  @  Kolkata Customs Clearance
+2026-06-27 22:06:28 | INFO     | tracker              |   [3/9]  Checking: TRK-2024-003
+2026-06-27 22:06:28 | DEBUG    | aftership_api        | Fetching: TRK-2024-003
+2026-06-27 22:06:29 | INFO     | aftership_api        | [DEMO] TRK-2024-003 → In Transit @ Ahmedabad Regional Centre
+2026-06-27 22:06:29 | DEBUG    | excel_handler        | Updated 'TRK-2024-003' → In Transit @ Ahmedabad Regional Centre
+2026-06-27 22:06:29 | INFO     | tracker              |         ✅  In Transit  @  Ahmedabad Regional Centre
+2026-06-27 22:06:29 | INFO     | tracker              |   [4/9]  Checking: TRK-2024-004
+2026-06-27 22:06:29 | DEBUG    | aftership_api        | Fetching: TRK-2024-004
+2026-06-27 22:06:30 | INFO     | aftership_api        | [DEMO] TRK-2024-004 → Out for Delivery @ Jaipur Last-Mile Facility
+2026-06-27 22:06:30 | DEBUG    | excel_handler        | Updated 'TRK-2024-004' → Out for Delivery @ Jaipur Last-Mile Facility
+2026-06-27 22:06:30 | INFO     | tracker              |         ✅  Out for Delivery  @  Jaipur Last-Mile Facility
+2026-06-27 22:06:30 | INFO     | tracker              |   [5/9]  Checking: TRK-2024-005
+2026-06-27 22:06:30 | DEBUG    | aftership_api        | Fetching: TRK-2024-005
+2026-06-27 22:06:30 | INFO     | aftership_api        | [DEMO] TRK-2024-005 → In Transit @ Mumbai Central Hub
+2026-06-27 22:06:30 | DEBUG    | excel_handler        | Updated 'TRK-2024-005' → In Transit @ Mumbai Central Hub
+2026-06-27 22:06:30 | INFO     | tracker              |         ✅  In Transit  @  Mumbai Central Hub
+2026-06-27 22:06:30 | INFO     | tracker              |   [6/9]  Checking: TRK-2024-006
+2026-06-27 22:06:30 | DEBUG    | aftership_api        | Fetching: TRK-2024-006
+2026-06-27 22:06:31 | INFO     | aftership_api        | [DEMO] TRK-2024-006 → Out for Delivery @ Delhi Gateway Facility
+2026-06-27 22:06:31 | DEBUG    | excel_handler        | Updated 'TRK-2024-006' → Out for Delivery @ Delhi Gateway Facility
+2026-06-27 22:06:31 | INFO     | tracker              |         ✅  Out for Delivery  @  Delhi Gateway Facility
+2026-06-27 22:06:31 | INFO     | tracker              |   [7/9]  Checking: INVALID-999
+2026-06-27 22:06:31 | DEBUG    | aftership_api        | Fetching: INVALID-999
+2026-06-27 22:06:32 | WARNING  | aftership_api        | [DEMO] Simulating not-found for: INVALID-999
+2026-06-27 22:06:32 | DEBUG    | excel_handler        | Updated 'INVALID-999' → Failed — Check Tracking No @ N/A
+2026-06-27 22:06:32 | INFO     | tracker              |         ❌  Failed — Tracking number not found in courier system
+2026-06-27 22:06:32 | INFO     | tracker              |   [8/9]  Checking: TRK-2024-008
+2026-06-27 22:06:32 | DEBUG    | aftership_api        | Fetching: TRK-2024-008
+2026-06-27 22:06:32 | INFO     | aftership_api        | [DEMO] TRK-2024-008 → In Transit @ Pune Sorting Centre
+2026-06-27 22:06:32 | DEBUG    | excel_handler        | Updated 'TRK-2024-008' → In Transit @ Pune Sorting Centre
+2026-06-27 22:06:32 | INFO     | tracker              |         ✅  In Transit  @  Pune Sorting Centre
+2026-06-27 22:06:32 | INFO     | tracker              |   [9/9]  Checking: ABC-2087-088
+2026-06-27 22:06:32 | DEBUG    | aftership_api        | Fetching: ABC-2087-088
+2026-06-27 22:06:33 | INFO     | aftership_api        | [DEMO] ABC-2087-088 → Exception / Delay @ Kolkata Customs Clearance
+2026-06-27 22:06:33 | DEBUG    | excel_handler        | Updated 'ABC-2087-088' → Exception / Delay @ Kolkata Customs Clearance
+2026-06-27 22:06:33 | INFO     | tracker              |         ✅  Exception / Delay  @  Kolkata Customs Clearance
+2026-06-27 22:06:33 | INFO     | tracker              | 
+💾  Saving updated file...
+2026-06-27 22:06:33 | INFO     | excel_handler        | Saved 9 rows to: C:/Users/admin/Downloads/logisync_demo.xlsx
+2026-06-27 22:06:33 | INFO     | tracker              | ✅  Saved to: C:/Users/admin/Downloads/logisync_demo.xlsx
+2026-06-27 22:06:33 | INFO     | tracker              | 
+────────────────────────────────────────────────
+2026-06-27 22:06:33 | INFO     | tracker              | Session: 8/9 succeeded, 1 failed in 5.6s
+2026-06-27 22:08:16 | INFO     | aftership_api        | AfterShipAPI initialised — mode: DEMO
+2026-06-27 22:08:16 | INFO     | tracker              | Tracker ready — courier: AfterShip
+2026-06-27 22:08:16 | INFO     | tracker              | 📂  Loading file: C:/Users/admin/Downloads/logisync_demo.xlsx
+2026-06-27 22:08:16 | INFO     | excel_handler        | ExcelHandler created for: C:/Users/admin/Downloads/logisync_demo.xlsx
+2026-06-27 22:08:16 | INFO     | excel_handler        | Reading Excel file: C:/Users/admin/Downloads/logisync_demo.xlsx
+2026-06-27 22:08:16 | INFO     | excel_handler        | Loaded 10 valid tracking rows.
+2026-06-27 22:08:16 | DEBUG    | excel_handler        | get_tracking_numbers() → 10 items
+2026-06-27 22:08:16 | INFO     | tracker              | ✅  Found 10 tracking number(s).
+2026-06-27 22:08:16 | INFO     | tracker              | 🌐  Fetching data via AfterShip...
+
+2026-06-27 22:08:16 | INFO     | tracker              |   [1/10]  Checking: TRK-2024-001
+2026-06-27 22:08:16 | DEBUG    | aftership_api        | Fetching: TRK-2024-001
+2026-06-27 22:08:17 | INFO     | aftership_api        | [DEMO] TRK-2024-001 → Out for Delivery @ Bangalore Distribution Hub
+2026-06-27 22:08:17 | DEBUG    | excel_handler        | Updated 'TRK-2024-001' → Out for Delivery @ Bangalore Distribution Hub
+2026-06-27 22:08:17 | INFO     | tracker              |         ✅  Out for Delivery  @  Bangalore Distribution Hub
+2026-06-27 22:08:17 | INFO     | tracker              |   [2/10]  Checking: TRK-2024-002
+2026-06-27 22:08:17 | DEBUG    | aftership_api        | Fetching: TRK-2024-002
+2026-06-27 22:08:17 | INFO     | aftership_api        | [DEMO] TRK-2024-002 → Exception / Delay @ Kolkata Customs Clearance
+2026-06-27 22:08:17 | DEBUG    | excel_handler        | Updated 'TRK-2024-002' → Exception / Delay @ Kolkata Customs Clearance
+2026-06-27 22:08:17 | INFO     | tracker              |         ✅  Exception / Delay  @  Kolkata Customs Clearance
+2026-06-27 22:08:17 | INFO     | tracker              |   [3/10]  Checking: TRK-2024-003
+2026-06-27 22:08:17 | DEBUG    | aftership_api        | Fetching: TRK-2024-003
+2026-06-27 22:08:18 | INFO     | aftership_api        | [DEMO] TRK-2024-003 → In Transit @ Ahmedabad Regional Centre
+2026-06-27 22:08:18 | DEBUG    | excel_handler        | Updated 'TRK-2024-003' → In Transit @ Ahmedabad Regional Centre
+2026-06-27 22:08:18 | INFO     | tracker              |         ✅  In Transit  @  Ahmedabad Regional Centre
+2026-06-27 22:08:18 | INFO     | tracker              |   [4/10]  Checking: TRK-2024-004
+2026-06-27 22:08:18 | DEBUG    | aftership_api        | Fetching: TRK-2024-004
+2026-06-27 22:08:19 | INFO     | aftership_api        | [DEMO] TRK-2024-004 → Out for Delivery @ Jaipur Last-Mile Facility
+2026-06-27 22:08:19 | DEBUG    | excel_handler        | Updated 'TRK-2024-004' → Out for Delivery @ Jaipur Last-Mile Facility
+2026-06-27 22:08:19 | INFO     | tracker              |         ✅  Out for Delivery  @  Jaipur Last-Mile Facility
+2026-06-27 22:08:19 | INFO     | tracker              |   [5/10]  Checking: TRK-2024-005
+2026-06-27 22:08:19 | DEBUG    | aftership_api        | Fetching: TRK-2024-005
+2026-06-27 22:08:19 | INFO     | aftership_api        | [DEMO] TRK-2024-005 → In Transit @ Mumbai Central Hub
+2026-06-27 22:08:19 | DEBUG    | excel_handler        | Updated 'TRK-2024-005' → In Transit @ Mumbai Central Hub
+2026-06-27 22:08:19 | INFO     | tracker              |         ✅  In Transit  @  Mumbai Central Hub
+2026-06-27 22:08:19 | INFO     | tracker              |   [6/10]  Checking: TRK-2024-006
+2026-06-27 22:08:19 | DEBUG    | aftership_api        | Fetching: TRK-2024-006
+2026-06-27 22:08:20 | INFO     | aftership_api        | [DEMO] TRK-2024-006 → Out for Delivery @ Delhi Gateway Facility
+2026-06-27 22:08:20 | DEBUG    | excel_handler        | Updated 'TRK-2024-006' → Out for Delivery @ Delhi Gateway Facility
+2026-06-27 22:08:20 | INFO     | tracker              |         ✅  Out for Delivery  @  Delhi Gateway Facility
+2026-06-27 22:08:20 | INFO     | tracker              |   [7/10]  Checking: INVALID-999
+2026-06-27 22:08:20 | DEBUG    | aftership_api        | Fetching: INVALID-999
+2026-06-27 22:08:21 | WARNING  | aftership_api        | [DEMO] Simulating not-found for: INVALID-999
+2026-06-27 22:08:21 | DEBUG    | excel_handler        | Updated 'INVALID-999' → Failed — Check Tracking No @ N/A
+2026-06-27 22:08:21 | INFO     | tracker              |         ❌  Failed — Tracking number not found in courier system
+2026-06-27 22:08:21 | INFO     | tracker              |   [8/10]  Checking: TRK-2024-008
+2026-06-27 22:08:21 | DEBUG    | aftership_api        | Fetching: TRK-2024-008
+2026-06-27 22:08:21 | INFO     | aftership_api        | [DEMO] TRK-2024-008 → In Transit @ Pune Sorting Centre
+2026-06-27 22:08:21 | DEBUG    | excel_handler        | Updated 'TRK-2024-008' → In Transit @ Pune Sorting Centre
+2026-06-27 22:08:21 | INFO     | tracker              |         ✅  In Transit  @  Pune Sorting Centre
+2026-06-27 22:08:21 | INFO     | tracker              |   [9/10]  Checking: ABC-2087-088
+2026-06-27 22:08:21 | DEBUG    | aftership_api        | Fetching: ABC-2087-088
+2026-06-27 22:08:22 | INFO     | aftership_api        | [DEMO] ABC-2087-088 → Exception / Delay @ Kolkata Customs Clearance
+2026-06-27 22:08:22 | DEBUG    | excel_handler        | Updated 'ABC-2087-088' → Exception / Delay @ Kolkata Customs Clearance
+2026-06-27 22:08:22 | INFO     | tracker              |         ✅  Exception / Delay  @  Kolkata Customs Clearance
+2026-06-27 22:08:22 | INFO     | tracker              |   [10/10]  Checking: DGHGW-897
+2026-06-27 22:08:22 | DEBUG    | aftership_api        | Fetching: DGHGW-897
+2026-06-27 22:08:22 | INFO     | aftership_api        | [DEMO] DGHGW-897 → Delivered @ Delivered to Recipient
+2026-06-27 22:08:22 | DEBUG    | excel_handler        | Updated 'DGHGW-897' → Delivered @ Delivered to Recipient
+2026-06-27 22:08:22 | INFO     | tracker              |         ✅  Delivered  @  Delivered to Recipient
+2026-06-27 22:08:22 | INFO     | tracker              | 
+💾  Saving updated file...
+2026-06-27 22:08:22 | INFO     | excel_handler        | Saved 10 rows to: C:/Users/admin/Downloads/logisync_demo.xlsx
+2026-06-27 22:08:22 | INFO     | tracker              | ✅  Saved to: C:/Users/admin/Downloads/logisync_demo.xlsx
+2026-06-27 22:08:22 | INFO     | tracker              | 
+────────────────────────────────────────────────
+2026-06-27 22:08:22 | INFO     | tracker              | Session: 9/10 succeeded, 1 failed in 6.2s
+2026-06-27 22:12:42 | INFO     | main                 | LogiSync closed.
